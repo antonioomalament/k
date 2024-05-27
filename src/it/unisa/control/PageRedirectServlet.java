@@ -17,8 +17,8 @@ public class PageRedirectServlet extends HttpServlet {
         if (page == null || page.isEmpty()) {
             response.sendRedirect("Home.jsp"); // Reindirizza ad una pagina di default
             return;
-        }
-
+         }
+ 
         // Converti il valore del parametro in minuscolo per evitare problemi di case sensitivity
         String pageLowerCase = page.toLowerCase();
 

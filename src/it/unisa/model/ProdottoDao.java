@@ -150,10 +150,14 @@ public class ProdottoDao implements ProdottoDaoInterfaccia{
 		PreparedStatement preparedStatement = null;
 
 		ArrayList<ProdottoBean> products = new ArrayList<ProdottoBean>();
+		 
+		List<String> validColumns = Arrays.asList("ID_PRODOTTO", "NOME", "DESCRIZIONE", "PREZZO", "QUANTITA",
+                 "PIATTAFORMA", "IVA", "DATA_USCITA", "IN_VENDITA", "IMMAGINE",
+                 "GENERE", "DESCRIZIONE_DETTAGLIATA");
 
 		String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME;
 
-		if (order != null && !order.equals("")) {
+		if (order != null && !order.equals("")&& validColumns.contains(order.toUpperCase())) {
 			selectSQL += " ORDER BY " + order;
 		}
 
